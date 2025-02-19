@@ -5,10 +5,10 @@
       </div>
       <h2>Access Trip Itinerary</h2>
       <div class="form-container">
-        <label>BookingID / PNR No.</label>
-        <input type="text" placeholder="BookingID / PNR No." id="bookingId" />
-        <label>Last Name</label>
-        <input type="text" placeholder="Last Name" id="lastName" />
+        <label>Booking ID</label>
+        <input type="text" placeholder="Booking ID" id="bookingId" />
+        <label>Email ID</label>
+        <input type="text" placeholder="Email ID" id="lastName" />
         <button onclick="searchBooking()">Search Booking</button>
       </div>
     </div>
