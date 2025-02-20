@@ -10,7 +10,7 @@
     <div v-if="detailsVisible" class="itinerary-card">
       <div class="flight-info">
         <div class="route">
-          <div class="super-saver">Time <span class="saver">Saver</span></div>
+          <div class="super-saver">GOOD<span class="saver">CHOICE</span></div>
           <div class="from">
             <strong class="CityName">{{ flightDetails.flight_name }}</strong>
             <p class="SRC">{{ flightDetails.src }}</p>
@@ -29,9 +29,9 @@
         </div>
         <hr class="separator">
         <div class="actions">
-          <button class="call-now">Call now: +1-888-898-****</button>
+          <button class="call-now">Call now: +1 833-931-6548</button>
           <div class="price-info">
-            <p class="Price-per-person">Price Per Person</p>
+            <p class="Price-per-person">Flight Price</p>
             <span class="additional-info">(incl. Taxes & Fees)</span>
           </div>
           <div class="price">${{ flightDetails.price }}</div>

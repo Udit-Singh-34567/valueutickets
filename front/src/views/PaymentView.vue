@@ -63,7 +63,20 @@ const updatePaymentDetails = (data) => {
 const route = useRoute();
 const flightDetails = route.query;
 
-const totalamount = flightDetails.price || 0.0;
+const passengerCount = computed(() => passengersmaintemp.value.length || 1);
+
+const totalamount = computed(() => {
+  let basePrice = parseFloat(flightDetails.price) || 0.0;
+
+  let extraCharges = 0;
+  if (cancellationProtection.value) extraCharges += 15 * passengerCount.value;
+  if (smsSupport.value) extraCharges += 2 * passengerCount.value;
+  if (lostBaggageProtection.value) extraCharges += 15 * passengerCount.value;
+  if (premiumSupport.value) extraCharges += 5 * passengerCount.value;
+  if (travelProtection.value) extraCharges += 100 * passengerCount.value;
+
+  return basePrice + extraCharges;
+});
 
 const collectData = () => {
   return {

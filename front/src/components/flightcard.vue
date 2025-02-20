@@ -121,9 +121,9 @@ watch(flights, (newFlights) => {
 
         <!-- Pricing & Stops -->
         <div class="pricing">
-          <button class="office-number">+1 (833)931-6548</button>
+          <button class="office-number">+1 833-931-6548</button>
           <div>
-            <span><strong>Price per Person:</strong></span>
+            <span><strong>Flight Price:</strong></span>
             <br /><span>Incl. Taxes and Fees</span>
           </div>
           <p><strong>${{ flight.price || "N/A" }}</strong></p>

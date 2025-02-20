@@ -43,7 +43,7 @@
 
               <!-- Right side: Price and "Per Person" text -->
               <div class="option-right">
-                <p class="option-price">$305</p>
+                <p class="option-price">$5.00</p>
                 <span class="persontext">Per Person</span>
               </div>
             </div>

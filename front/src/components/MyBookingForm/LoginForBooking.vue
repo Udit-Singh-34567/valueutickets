@@ -14,7 +14,7 @@
           <label for="email">Email ID</label>
           <input v-model="email" type="text" class="form-control" id="email" placeholder="Email ID" />
         </div>
-        <button @click="searchBooking" class="btn btn-primary btn-block">Track Booking Status</button>
+        <button @click="searchBooking" class="btn btn-primary btn-block">Track Booking  Status</button>
       </div>
     </div>
 

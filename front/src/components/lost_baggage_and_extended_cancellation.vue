@@ -30,7 +30,7 @@
                         </label>
                         <!-- Right side: Price and "Per Person" text -->
                         <div class="option-right">
-                            <p class="option-price">$305</p>
+                            <p class="option-price">$15</p>
                             <span class="persontext">Per Person</span>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                         </label>
                         <!-- Right side: Price and "Per Person" text -->
                         <div class="option-right">
-                            <p class="option-price">$305</p>
+                            <p class="option-price">$15</p>
                             <span class="persontext">Per Person</span>
                         </div>
                     </div>

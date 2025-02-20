@@ -20,7 +20,7 @@
               <strong>Yes, I want Cancellation Protection Plan for my flights.</strong>
             </div>
             <div class="price-text">
-              <p class="price">$305</p>
+              <p class="price">$100</p>
               <p class="per-person">Per Person</p>
             </div>
           </label>
@@ -33,7 +33,7 @@
               <strong>No, I'm willing to risk my flight.</strong>
             </div>
             <div class="price-text">
-              <p class="price">$000.00</p>
+              <p class="price">$0.00</p>
               <p class="per-person">Per Person</p>
             </div>
           </label>
