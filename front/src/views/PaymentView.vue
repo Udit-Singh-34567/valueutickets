@@ -104,33 +104,40 @@ const responseMessage = ref("");
 const validateForm = () => {
   errors.value = {};
 
-  if (!/^\d{10}$/.test(itineraryDetails.value.phone_number)) {
-    errors.value.phone_number = "Please enter a valid 10-digit phone number.";
-  }
+  // if (!/^[0-9]{10}$/.test(itineraryDetails.value.phone_number)) {
+  //   console.log("Phone number invalid");
+  //   errors.value.phone_number = "Please enter a valid 10-digit phone number.";
+  // }
 
-  if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(itineraryDetails.value.email)) {
-    errors.value.email = "Invalid email format.";
-  }
+
+  // if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(itineraryDetails.value.email)) {
+  //   console.log("Email invalid");
+  //   errors.value.email = "Invalid email format.";
+  // }
+
 
   // Additional validation for required fields, dates, passengers, etc.
-  const requiredFields = ["date", "flight_name", "departure_iata", "arrival_iata", "departure_date", "arrival_date"];
-  requiredFields.forEach(field => {
-    if (!itineraryDetails.value[field]) {
-      errors.value[field] = "This field is required.";
-    }
-  });
+  // const requiredFields = ["date", "flight_name", "departure_iata", "arrival_iata", "departure_date", "arrival_date"];
+  // requiredFields.forEach(field => {
+  //   if (!itineraryDetails.value[field]) {
+  //   console.log("itineraryDetails invalid")
+  //     errors.value[field] = "This field is required.";
+  //   }
+  // });
 
-  if (flightDetails.departure && flightDetails.arrival) {
-    let departure = new Date(flightDetails.departure);
-    let arrival = new Date(flightDetails.arrival);
+  // if (flightDetails.departure && flightDetails.arrival) {
+  //   let departure = new Date(flightDetails.departure);
+  //   let arrival = new Date(flightDetails.arrival);
 
-    if (arrival <= departure) {
-      errors.value.arrival_date = "Arrival date must be after departure date.";
-    }
-  }
+  //   if (arrival <= departure) {
+  //     console.log("itineraryDetails invalid")
+  //     errors.value.arrival_date = "Arrival date must be after departure date.";
+  //   }
+  // }
 
   // Validate passengers details
   if (passengerDetails.value.length > 8) {
+    console.log("passengerdetails invalid")
     errors.value.passengers = "A maximum of 8 passengers is allowed.";
   }
 
@@ -141,6 +148,7 @@ const validateForm = () => {
   passengerDetails.value.forEach((passenger, index) => {
 
     if (!passenger.first_name || !passenger.last_name || !passenger.dob || !passenger.gender) {
+      console.log("passengerdetails invalid 2")
       errors.value[`passenger_${index}`] = `Passenger ${index + 1} details are incomplete.`;
     }
 
@@ -159,10 +167,12 @@ const validateForm = () => {
   });
 
   if (infants > 0 && adults === 0) {
+    console.log("Infants cannot travel alone invalid")
     errors.value.passengers = "Infants cannot travel alone.";
   }
 
   if (infants > 3 && adults < 2) {
+    console.log("infants > 3 && adults < 2")
     errors.value.passengers = "If there are more than 3 infants, at least 2 adults must travel.";
   }
 
@@ -178,38 +188,45 @@ const validateForm = () => {
 
   requiredField.forEach(field => {
     if (!billingDetails.value[field.key]) {
+      console.log("188 line invalid")
       errors.value[field.key] = field.message;
     }
   });
 
   // Validate postal code
   if (!/^\d{4,10}$/.test(billingDetails.value.postal_code)) {
+    console.log("invalid postal")
     errors.value.postal_code = "Invalid postal code";
   }
 
   // Validate card number
   if (!/^\d{16}$/.test(billingDetails.value.card_number)) {
+    console.log("202 line invalid")
     errors.value.card_number = "Card number must be exactly 16 digits.";
   }
 
   // Validate card expiry month
   if (!/^(0?[1-9]|1[0-2])$/.test(billingDetails.value.card_expiry_month)) {
+    console.log("208 line invalid")
     errors.value.card_expiry_month = "Enter a valid month.";
   }
 
   // Validate expiry year
   const currentYear = new Date().getFullYear();
   if (!/^\d{4}$/.test(billingDetails.value.card_expiry_year) || billingDetails.value.card_expiry_year < currentYear) {
+    console.log("215 line invalid")
     errors.value.card_expiry_year = "Enter a valid expiry year.";
   }
 
   // Validate CVV
   if (!/^\d{3}$/.test(billingDetails.value.cvv)) {
+    console.log("221 line invalid")
     errors.value.cvv = "CVV must be exactly 3 digits.";
   }
 
   // Validate payable amount
   if (billingDetails.value.payble_amount <= 0) {
+    console.log("227 line invalid")
     errors.value.payble_amount = "Payable amount cannot be 0.";
   }
 
@@ -300,19 +317,19 @@ function handleClick() {
     <!-- Popup Overlay -->
     <div v-if="showPopup" class="popup-overlay">
       <div class="popup">
-        <h2>Popup Content</h2>
+        <h2>We've got your bookings ✌.</h2>
 
         <!-- Show skeleton while loading -->
-        <div v-if="loading" class="skeleton-loader">
+        <!-- <div v-if="loading" class="skeleton-loader">
           <div class="skeleton skeleton-title"></div>
           <div class="skeleton skeleton-text"></div>
           <div class="skeleton skeleton-text"></div>
-        </div>
+        </div> -->
 
         <!-- Show data when loaded -->
-        <div v-else>
-          <p><strong>Title:</strong>{{ responseMessage }}</p>
-          <p><strong>Description:</strong></p>
+        <div>
+          <p><strong>Pls Check your E-Mail</strong></p>
+          <!-- <p><strong>Description:</strong></p> -->
         </div>
 
         <!-- Close Button -->
